@@ -21,7 +21,9 @@ class WebSocketServer extends Command
                 new WsServer(
                     new WebSocketController
                 )
-            )
+            ), 6001
         );
+
+        $server->run();
     }
 }
