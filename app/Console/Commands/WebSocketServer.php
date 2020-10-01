@@ -2,8 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Controllers\FirstWebSocketController;
-use App\Http\Controllers\SecondWebSocketController;
+use App\Http\Controllers\WebSocketController;
 use Illuminate\Console\Command;
 use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
@@ -20,23 +19,12 @@ class WebSocketServer extends Command
         $firstServer = IoServer::factory(
             new HttpServer(
                 new WsServer(
-                    new FirstWebSocketController
+                    new WebSocketController
                 )
-            ), 6001
-        );
-
-        $secondServer = IoServer::factory(
-            new HttpServer(
-                new WsServer(
-                    new SecondWebSocketController
-                )
-            ), 6002
+            ), 80
         );
 
         $this->info('First Server is running on port: 6001');
         $firstServer->run();
-
-        $this->info('Second Server is running on port: 6002');
-        $secondServer->run();
     }
 }

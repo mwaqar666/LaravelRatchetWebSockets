@@ -9,7 +9,7 @@
     <body>
         <button onclick="websocket.send('Hello World')">Send Hello World</button>
         <script>
-            const websocket = window.websocket = new WebSocket("ws://localhost:6001/");
+            const websocket = window.websocket = new WebSocket("ws://69.167.136.219:80/");
             websocket.onopen = data => console.log('Connection opened: ', data);
             websocket.onclose = data => console.log('Connection closed: ', data);
             websocket.onmessage = data => console.log('Connection message: ', data);
