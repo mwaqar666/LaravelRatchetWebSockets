@@ -21,7 +21,7 @@ class WebSocketServer extends Command
                 new WsServer(
                     new WebSocketController
                 )
-            ), 80
+            ), 80, '69.167.136.219'
         );
 
         $this->info('First Server is running on port: 6001');
